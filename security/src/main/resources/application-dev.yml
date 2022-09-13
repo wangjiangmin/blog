@@ -1,0 +1,88 @@
+#	配置系统使用配置文件 开发配置
+server:
+   port: 8081
+   servlet:
+      session:
+         timeout: 0s      #   页面关闭则失效
+
+#	日志输出等级
+logging:
+   level:
+      root: debug
+      org.springframework.boot.autoconfigure.logging: info       #   关闭环境评估信息
+
+spring:
+   jmx:
+      enabled: false
+   thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      encoding: UTF-8
+      mode: HTML5
+      cache: false
+
+   redis:
+      database: 0
+      host: localhost         # Redis服务器地址
+      port: 6379              # Redis服务器连接端口
+      password:               # Redis服务器连接密码（默认为空）
+      pool:
+         max-active: 200       # 连接池最大连接数（使用负值表示没有限制）
+         max-idle: 10          # 连接池中的最大空闲连接
+         max-wait: -1          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+         min-idle: 0           # 连接池中的最小空闲连接
+      timeout: 1000           # 连接超时时间（毫秒）
+
+   datasource:
+#      url: jdbc:h2:file:./blog-dev;MODE=MYSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE;IFEXISTS=false;
+#      username: blog
+#      password: blog@123
+#      driver-class-name: org.h2.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+         initial-size: 5
+         max-active: 50
+         max-open-prepared-statements: 50
+         max-wait: 100
+         validation-query: "SELECT 1"
+         query-timeout: 10
+         db1:
+            url: jdbc:h2:file:./blog-dev-1;MODE=MYSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE;IFEXISTS=false;
+            username: blog
+            password: blog@123
+            driver-class-name: org.h2.Driver
+         db2:
+            url: jdbc:h2:file:./blog-dev-2;MODE=MYSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE;IFEXISTS=false;
+            username: blog
+            password: blog@123
+            driver-class-name: org.h2.Driver
+
+
+
+
+   h2:
+      console:
+         enabled: true
+         path: /h2
+         settings:
+            web-allow-others: false
+   sql:
+      init: #  启动时执行 sql 脚本
+         #enabled: true
+         mode: always
+         encoding: utf-8
+         schema-locations:
+            - classpath:db/h2/init.sql
+
+
+jwt:
+   data:
+      secret: afadfa48faap874
+
+mybatis:
+   configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#h2:
+#   sql:
+#      path: db/h2/init.sql

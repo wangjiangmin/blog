@@ -1,0 +1,47 @@
+#	配置系统使用配置文件 线上测试配置
+server:
+  port: 8081
+  servlet:
+    session:
+      timeout: 0s      #   页面关闭则失效
+
+#	日志输出等级
+logging:
+  level:
+    root: debug
+    org.springframework.boot.autoconfigure.logging: info       #   关闭环境评估信息
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./blog-dev;MODE=MYSQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE;IFEXISTS=false;
+    username: blog
+    password: blog@123
+    driver-class-name: org.h2.Driver
+
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+      settings:
+        web-allow-others: false
+  sql:
+    init: #  启动时执行 sql 脚本
+      #enabled: true
+      mode: always
+      encoding: utf-8
+      schema-locations:
+        - classpath:db/h2/init.sql
+
+
+jwt:
+  data:
+    secret: afadfa48faap874
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#h2:
+#   sql:
+#      path: db/h2/init.sql
