@@ -13,19 +13,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * @ClassName: StartTaskRunner
- * @Description: TODO  
+ * @Description: 随项目启动任务
  * @author 王江民		@date 2022-07-08 11:28:58	@version V1.0 
  */
 
 @Component
 public class StartTaskRunner implements CommandLineRunner{
 	
-	@Autowired
-	H2TaskConfig h2TaskConfig;
-
 	/**
 	 * <p>Title: run 接口实现类</p>
-	 * @Description: TODO 
+	 * @Description: 启动任务
 	 * @param args
 	 * @throws Exception 
 	 * @author 王江民		@date 2022-07-08 11:29:15		@version V1.0 
@@ -33,7 +30,7 @@ public class StartTaskRunner implements CommandLineRunner{
 	 */
 	@Override
 	public void run(String... args) throws Exception {
-//		h2TaskConfig.createTaableDDL();
+
 	}
 
 }
