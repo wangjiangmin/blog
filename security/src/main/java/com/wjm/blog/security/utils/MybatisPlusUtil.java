@@ -199,8 +199,8 @@ public class MybatisPlusUtil {
 	public void refreshPojo(String dataSourceName,Builder builder) {
 		System.out.println("开始构建...");
 		String parent = packageParent +"." + dataSourceName + ".auto";
-		String classOutPutDir = outputDir + Paths.get("src", "main", "java").toString();
-		String mappingOutPutDir = outputDir + Paths.get(packageMapping,dataSourceName);
+		String classOutPutDir = Paths.get(outputDir,"src", "main", "java").toString();
+		String mappingOutPutDir = Paths.get(outputDir,packageMapping,dataSourceName).toString();
 		System.out.println("实体类 输出路径: " + classOutPutDir + " " + parent);
 		System.out.println("mapping 输出路径: " + mappingOutPutDir);
 
