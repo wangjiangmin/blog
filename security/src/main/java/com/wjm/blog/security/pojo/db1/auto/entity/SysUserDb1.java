@@ -17,13 +17,13 @@ import lombok.Setter;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-13
+ * @since 2022-09-20
  */
 @Getter
 @Setter
-@TableName("user")
-@ApiModel(value = "UserDb1对象", description = "")
-public class UserDb1 extends Model<UserDb1> {
+@TableName("sys_user")
+@ApiModel(value = "SysUserDb1对象", description = "")
+public class SysUserDb1 extends Model<SysUserDb1> {
 
     private static final long serialVersionUID = 1L;
 
@@ -70,7 +70,7 @@ public class UserDb1 extends Model<UserDb1> {
     @ApiModelProperty("修改日期")
     private LocalDate updateDate;
 
-    @ApiModelProperty("是否删除 0:删除   1:存在")
+    @ApiModelProperty("是否删除 0:存在   1:删除")
     private Integer delFlag;
 
 

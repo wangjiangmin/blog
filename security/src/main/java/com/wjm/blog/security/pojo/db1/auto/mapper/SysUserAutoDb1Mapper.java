@@ -1,6 +1,6 @@
 package com.wjm.blog.security.pojo.db1.auto.mapper;
 
-import com.wjm.blog.security.pojo.db1.auto.entity.UserDb1;
+import com.wjm.blog.security.pojo.db1.auto.entity.SysUserDb1;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-13
+ * @since 2022-09-20
  */
-public interface UserAutoDb1Mapper extends BaseMapper<UserDb1> {
+public interface SysUserAutoDb1Mapper extends BaseMapper<SysUserDb1> {
 
 }
