@@ -26,7 +26,7 @@ import java.util.Map;
  */
 @EnableTransactionManagement        //  开启事务管理
 @Configuration
-@MapperScan("com.wjm.blog.security.pojo")
+@MapperScan("com.wjm.blog.security.pojo.*.auto.mapper")
 public class MybatisPlusConfig {
 
     @Bean

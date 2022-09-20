@@ -55,7 +55,7 @@ public class MybatisPlusUtil {
 				.setPackageMapping("/src/main/resources/mapping/")	//	mapping 路径
 				.loadYaml("application-dev.yml")					//	配置文件路径
 				.initDataSource("db/h2/init.sql")					//	需要执行的sql
-				.tables("user")										//	需要生成的表,可以多个
+				.tables("sys_user","sys_menu","sys_role")										//	需要生成的表,可以多个
 				.check()
 				.refreshPojo();
 

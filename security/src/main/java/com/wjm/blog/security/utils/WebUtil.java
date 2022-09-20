@@ -1,6 +1,5 @@
 package com.wjm.blog.security.utils;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 

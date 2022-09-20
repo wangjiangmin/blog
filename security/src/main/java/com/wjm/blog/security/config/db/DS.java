@@ -1,7 +1,7 @@
 /**
  * @Title: DS.java
  * @Package com.ahead.ebook.config.db
- * @Description: TODO
+ * @Description: 切换数据库注解
  * @author 王江民		@date 2022-07-01 11:26:58	@version V1.0 
  */
 
@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 
 /**
  * @ClassName: DS
- * @Description: TODO  
+ * @Description: 切换数据库注解
  * @author 王江民		@date 2022-07-01 11:26:58	@version V1.0 
  */
 @Documented

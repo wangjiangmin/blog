@@ -73,6 +73,7 @@ spring:
          encoding: utf-8
          schema-locations:
             - classpath:db/h2/init.sql
+            - classpath:db/h2/data.sql
 
 
 jwt:
@@ -86,3 +87,6 @@ mybatis:
 #h2:
 #   sql:
 #      path: db/h2/init.sql
+
+token_salt: TOKEN_SALT
+login_token_id: LOGIN_TOKEN_ID.

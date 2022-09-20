@@ -7,13 +7,13 @@
 
 package com.wjm.blog.security.utils;
 
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import org.yaml.snakeyaml.Yaml;
 
 /**
  * @ClassName: YamlUtil

@@ -12,7 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author wjm;1778682202@qq.com    DATETIME: 2022/9/9-🍀14:43 @version 1.0
  * @description: 权限管理后台
  */
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class,DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //  SecurityAutoConfiguration.class         //  security    安全框架配置 , 需要不登录访问时系统时排除
 //  DataSourceAutoConfiguration.class       //  druid 数据源自动配置 , 动态数据源需要排除
 //  MybatisPlusAutoConfiguration.class      //  mybatisPlus 自动配置
