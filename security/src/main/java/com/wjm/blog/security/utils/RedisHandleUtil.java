@@ -1,14 +1,11 @@
 package com.wjm.blog.security.utils;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
@@ -17,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * @description: redis 操作工具
  */
 @Component
+@SuppressWarnings(value = { "unchecked", "rawtypes" })
 public class RedisHandleUtil {
 
     @Autowired

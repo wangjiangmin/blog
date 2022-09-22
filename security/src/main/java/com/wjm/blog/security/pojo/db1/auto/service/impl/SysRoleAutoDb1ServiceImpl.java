@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 @Service
 public class SysRoleAutoDb1ServiceImpl extends ServiceImpl<SysRoleAutoDb1Mapper, SysRoleDb1> implements SysRoleAutoDb1Service {

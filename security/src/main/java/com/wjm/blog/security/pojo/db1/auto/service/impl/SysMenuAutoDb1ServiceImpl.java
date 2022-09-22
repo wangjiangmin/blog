@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 @Service
 public class SysMenuAutoDb1ServiceImpl extends ServiceImpl<SysMenuAutoDb1Mapper, SysMenuDb1> implements SysMenuAutoDb1Service {

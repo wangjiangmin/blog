@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 public interface SysRoleAutoDb1Service extends IService<SysRoleDb1> {
 

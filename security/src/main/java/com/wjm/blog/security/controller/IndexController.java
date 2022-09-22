@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 
     @RequestMapping({"/",""})
+    @PreAuthorize("permitAll()")
     public ModelAndView toIndex(ModelAndView mv){
 
         mv.setViewName("index");
@@ -21,7 +22,7 @@ public class IndexController {
     }
 
     @RequestMapping({"/hello"})
-    @PreAuthorize("hasAuthority('test')")
+    @PreAuthorize("hasAuthority('system:hello')")
     public ModelAndView toHello(ModelAndView mv){
 
         mv.setViewName("hello");
@@ -29,11 +30,25 @@ public class IndexController {
     }
 
     @RequestMapping({"/admin"})
-    @PreAuthorize("hasAuthority('admin')")
+    @PreAuthorize("hasAuthority('system:admin')")
     public ModelAndView toAdmin(ModelAndView mv){
 
         mv.setViewName("admin");
         return mv;
+    }
+
+    @RequestMapping({"/test"})
+    @PreAuthorize("hasAuthority('system:test')")
+    public String toTest(ModelAndView mv){
+
+        return "test";
+    }
+
+    @RequestMapping({"/test2"})
+    @PreAuthorize("hasAuthority('system:test2')")
+    public String toTest2(ModelAndView mv){
+
+        return "test2";
     }
 
 

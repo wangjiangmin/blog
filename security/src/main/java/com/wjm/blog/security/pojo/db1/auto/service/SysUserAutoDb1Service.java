@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ * 系统用户表 服务类
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 public interface SysUserAutoDb1Service extends IService<SysUserDb1> {
 

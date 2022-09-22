@@ -1,8 +1,10 @@
 package com.wjm.blog.security.service.userManager.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.wjm.blog.security.mapper.SysUserRightMapper;
 import com.wjm.blog.security.pojo.db1.auto.entity.SysUserDb1;
 import com.wjm.blog.security.pojo.db1.auto.service.SysUserAutoDb1Service;
+import com.wjm.blog.security.service.rigihtManager.RightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,6 +25,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private SysUserAutoDb1Service userService;
 
+    @Autowired
+    private RightService rightService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //  查询用户
@@ -36,15 +41,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         //  TODO 查询权限信息
-        List<String> userRights = null;
-        if("test".equals(list.get(0).getUserName())){
-            userRights = new ArrayList<>(Arrays.asList("test"));
-        }else if("admin".equals(list.get(0).getUserName())){
-            userRights = new ArrayList<>(Arrays.asList("admin"));
-        }
+        List<String> userRights = rightService.queryUserRight(list.get(0).getUserId());
 
-
-        
         return new UserLogin(list.get(0),userRights,null);
     }
 }

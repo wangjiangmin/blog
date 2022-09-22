@@ -23,7 +23,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DS {
 	
-	String value();
+	DataSources value();
 	
 //	String value() default DatasourceNames.H2;
 }

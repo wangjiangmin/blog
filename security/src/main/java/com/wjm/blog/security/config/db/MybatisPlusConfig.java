@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.spring.annotation.MapperScan;
+import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +27,7 @@ import java.util.Map;
  */
 @EnableTransactionManagement        //  开启事务管理
 @Configuration
-@MapperScan("com.wjm.blog.security.pojo.*.auto.mapper")
+@MapperScan({"com.wjm.blog.security.pojo.*.auto.mapper","com.wjm.blog.security.mapper"})
 public class MybatisPlusConfig {
 
     @Bean

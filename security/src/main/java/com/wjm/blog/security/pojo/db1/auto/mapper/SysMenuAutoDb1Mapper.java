@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 public interface SysMenuAutoDb1Mapper extends BaseMapper<SysMenuDb1> {
 

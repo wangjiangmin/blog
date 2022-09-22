@@ -212,7 +212,7 @@ public class MybatisPlusUtil {
 			.fileOverride()
 //			.outputDir(filePath + "/src/main/java")
 			.outputDir(classOutPutDir)
-//			.disableOpenDir()		//	不打开生成目录
+			.disableOpenDir()		//	不打开生成目录
 
 			.fileOverride() 		// 	覆盖
 			;

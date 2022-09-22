@@ -4,7 +4,9 @@ import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTHeader;
 import cn.hutool.jwt.JWTUtil;
 import com.wjm.blog.security.service.userManager.impl.UserLogin;
+import com.wjm.blog.security.utils.HttpUtil;
 import com.wjm.blog.security.utils.RedisHandleUtil;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,6 +27,7 @@ import java.util.Objects;
  * @description: token 认证过滤器
  */
 @Component
+@Log4j2
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -52,6 +55,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("token 非法!!!");
+//            log.info("token 非法!!!");
+//            HttpUtil.noLoginUserInfo(request);
         }
         jwt.getHeader(JWTHeader.TYPE);
         final Integer userId = (Integer) jwt.getPayload("userId");
@@ -59,17 +64,15 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         //  从 redis 中获取用户信息
         UserLogin userLogin = redis.get(LOGIN_TOKEN_ID + userId, UserLogin.class);
         if(Objects.isNull(userLogin)){
-            throw new RuntimeException("用户未登录!!!");
+            throw new RuntimeException("用户登录信息为空!!!");
+//            log.info("用户登录信息为空!!!");
+//            HttpUtil.noLoginUserInfo(request);
+        }else{
+            //  UsernamePasswordAuthenticationToken 三参构造是默认验证通过的 , 二参需要自己设置验证通过标记
+            // 存入 securityContextHolder
+            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userLogin, null, userLogin.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
-
-        //  TODO    获取权限信息 , 并封装到 Authentication 中
-
-
-        //  UsernamePasswordAuthenticationToken 三参构造是默认验证通过的 , 二参需要自己设置验证通过标记
-        // 存入 securityContextHolder
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userLogin, null, userLogin.getAuthorities());
-
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
         //  放行
         filterChain.doFilter(request,response);

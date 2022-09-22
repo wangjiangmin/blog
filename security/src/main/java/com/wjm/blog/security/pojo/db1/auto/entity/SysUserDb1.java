@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -13,21 +13,21 @@ import lombok.Setter;
 
 /**
  * <p>
- * 
+ * 系统用户表
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 @Getter
 @Setter
 @TableName("sys_user")
-@ApiModel(value = "SysUserDb1对象", description = "")
+@ApiModel(value = "SysUserDb1对象", description = "系统用户表")
 public class SysUserDb1 extends Model<SysUserDb1> {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty("用id")
+    @ApiModelProperty("用户id")
     @TableId(value = "user_id", type = IdType.AUTO)
     private Long userId;
 
@@ -59,16 +59,16 @@ public class SysUserDb1 extends Model<SysUserDb1> {
     private Integer userType;
 
     @ApiModelProperty("创建人id")
-    private Long createById;
+    private Long createBy;
 
     @ApiModelProperty("创建日期")
-    private LocalDate createDate;
+    private LocalDateTime createDate;
 
     @ApiModelProperty("修改人id")
-    private Long updateById;
+    private Long updateBy;
 
     @ApiModelProperty("修改日期")
-    private LocalDate updateDate;
+    private LocalDateTime updateDate;
 
     @ApiModelProperty("是否删除 0:存在   1:删除")
     private Integer delFlag;

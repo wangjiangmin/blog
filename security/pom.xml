@@ -122,6 +122,11 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-jwt</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-http</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

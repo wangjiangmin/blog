@@ -20,7 +20,7 @@ import java.util.Objects;
  * @Description: TODO
  * @author 王江民 @date 2022-06-27 16:18:09 @version V1.0
  */
-
+@SuppressWarnings(value = { "unchecked" })
 public class YamlUtil {
 	
 	static String yamlName;

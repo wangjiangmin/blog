@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ * 系统用户表 服务实现类
  * </p>
  *
  * @author 王江民
- * @since 2022-09-20
+ * @since 2022-09-21
  */
 @Service
 public class SysUserAutoDb1ServiceImpl extends ServiceImpl<SysUserAutoDb1Mapper, SysUserDb1> implements SysUserAutoDb1Service {
